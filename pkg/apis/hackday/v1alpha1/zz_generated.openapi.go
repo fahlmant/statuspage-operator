@@ -224,7 +224,15 @@ func schema_pkg_apis_hackday_v1alpha1_StatusPageIncidentStatus(ref common.Refere
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
 				Description: "StatusPageIncidentStatus defines the observed state of StatusPageIncident",
-				Properties:  map[string]spec.Schema{},
+				Properties: map[string]spec.Schema{
+					"scheduled": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"boolean"},
+							Format: "",
+						},
+					},
+				},
+				Required: []string{"scheduled"},
 			},
 		},
 		Dependencies: []string{},
