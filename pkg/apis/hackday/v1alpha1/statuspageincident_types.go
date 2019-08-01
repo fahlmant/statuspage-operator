@@ -1,8 +1,9 @@
 package v1alpha1
 
 import (
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"time"
+
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -14,14 +15,21 @@ type StatusPageIncidentSpec struct {
 	StartTime  time.Time `json:"startTime",omit:empty` // UTC
 	EndTime    time.Time `json:"endTime",omit:empty`   // UTC
 	Message    string    `json:"message"`
-	Type       string    `json:"type"`
+	Type       SPType    `json:"type"`
 	Components []string  `json:"components"`
 	Name       string    `json:"name"`
 }
 
+// SPType special type limiting the types supported in StatusPageIncident
+type SPType string
+
+// Scheduled type supported by StatusPageIncidentSpec
+var Scheduled SPType = "scheduled"
+
 // StatusPageIncidentStatus defines the observed state of StatusPageIncident
 // +k8s:openapi-gen=true
 type StatusPageIncidentStatus struct {
+	Scheduled bool `json:"scheduled"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

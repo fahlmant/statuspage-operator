@@ -54,6 +54,11 @@ spec:
           - name
           type: object
         status:
+          properties:
+            scheduled:
+              type: boolean
+          required:
+          - scheduled
           type: object
   version: v1alpha1
   versions:
