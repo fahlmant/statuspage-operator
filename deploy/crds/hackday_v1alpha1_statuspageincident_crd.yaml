@@ -28,6 +28,30 @@ spec:
         metadata:
           type: object
         spec:
+          properties:
+            components:
+              items:
+                type: string
+              type: array
+            endTime:
+              description: UTC
+              type: object
+            message:
+              description: UTC
+              type: string
+            name:
+              type: string
+            startTime:
+              type: object
+            type:
+              type: string
+          required:
+          - startTime
+          - endTime
+          - message
+          - type
+          - components
+          - name
           type: object
         status:
           type: object

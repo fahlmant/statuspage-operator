@@ -2,6 +2,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"time"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -10,17 +11,17 @@ import (
 // StatusPageIncidentSpec defines the desired state of StatusPageIncident
 // +k8s:openapi-gen=true
 type StatusPageIncidentSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
-	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
+	StartTime  time.Time `json:"startTime",omit:empty` // UTC
+	EndTime    time.Time `json:"endTime",omit:empty`   // UTC
+	Message    string    `json:"message"`
+	Type       string    `json:"type"`
+	Components []string  `json:"components"`
+	Name       string    `json:"name"`
 }
 
 // StatusPageIncidentStatus defines the observed state of StatusPageIncident
 // +k8s:openapi-gen=true
 type StatusPageIncidentStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
-	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -70,7 +70,35 @@ func schema_pkg_apis_hackday_v1alpha1_StatusPageCustomerSpec(ref common.Referenc
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
 				Description: "StatusPageCustomerSpec defines the desired state of StatusPageCustomer",
-				Properties:  map[string]spec.Schema{},
+				Properties: map[string]spec.Schema{
+					"email": {
+						SchemaProps: spec.SchemaProps{
+							Description: "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"operator-sdk generate k8s\" to regenerate code after modifying this file Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html email clustername components: etcd, registry, api",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"clusterName": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"components": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Type:   []string{"string"},
+										Format: "",
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"email", "clusterName", "components"},
 			},
 		},
 		Dependencies: []string{},
@@ -137,7 +165,54 @@ func schema_pkg_apis_hackday_v1alpha1_StatusPageIncidentSpec(ref common.Referenc
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
 				Description: "StatusPageIncidentSpec defines the desired state of StatusPageIncident",
-				Properties:  map[string]spec.Schema{},
+				Properties: map[string]spec.Schema{
+					"startTime": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "date-time",
+						},
+					},
+					"endTime": {
+						SchemaProps: spec.SchemaProps{
+							Description: "UTC",
+							Type:        []string{"string"},
+							Format:      "date-time",
+						},
+					},
+					"message": {
+						SchemaProps: spec.SchemaProps{
+							Description: "UTC",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"type": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"components": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Type:   []string{"string"},
+										Format: "",
+									},
+								},
+							},
+						},
+					},
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+				},
+				Required: []string{"startTime", "endTime", "message", "type", "components", "name"},
 			},
 		},
 		Dependencies: []string{},

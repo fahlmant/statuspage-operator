@@ -13,6 +13,12 @@ type StatusPageCustomerSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
 	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
+	//email
+	//clustername
+	//components: etcd, registry, api
+	Email       string   `json:"email"`
+	ClusterName string   `json:"clusterName"`
+	Components  []string `json:"components"`
 }
 
 // StatusPageCustomerStatus defines the observed state of StatusPageCustomer
@@ -21,6 +27,7 @@ type StatusPageCustomerStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
 	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
+	//Completed bool `json:"completed"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
