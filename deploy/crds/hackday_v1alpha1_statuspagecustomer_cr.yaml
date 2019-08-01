@@ -1,0 +1,7 @@
+apiVersion: hackday.openshift.io/v1alpha1
+kind: StatusPageCustomer
+metadata:
+  name: example-statuspagecustomer
+spec:
+  # Add fields here
+  size: 3

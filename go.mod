@@ -1,4 +1,4 @@
-module github.com/fahlmant/statuspage-operator1
+module github.com/fahlmant/statuspage-operator
 
 require (
 	contrib.go.opencensus.io/exporter/ocagent v0.4.9 // indirect

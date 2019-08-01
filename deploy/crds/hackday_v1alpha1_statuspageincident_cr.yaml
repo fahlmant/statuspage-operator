@@ -1,0 +1,7 @@
+apiVersion: hackday.openshift.io/v1alpha1
+kind: StatusPageIncident
+metadata:
+  name: example-statuspageincident
+spec:
+  # Add fields here
+  size: 3
